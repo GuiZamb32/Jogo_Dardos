@@ -1,3 +1,5 @@
+/* ===== PÁGINA ===== */
+
 .darts-overlay {
   min-height: 100vh;
 
@@ -6,28 +8,74 @@
   justify-content: center;
   align-items: center;
 
-  gap: 25px;
+  padding: 30px;
 
-  padding: 20px;
+  background:
+    radial-gradient(circle at top,
+      rgba(255,255,255,.03),
+      transparent 40%),
+    #090909;
 }
 
-.darts-victory-icon {
-  font-size: 7rem;
+/* ===== TEXTO ===== */
+
+.darts-victory-player {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  font-size: clamp(2rem, 7vw, 3rem);
+  font-weight: 700;
+
+  color: white;
+
+  margin-bottom: 10px;
+}
+
+.darts-player-name {
+  color: #7a7a7a;
 }
 
 .darts-victory-title {
   color: white;
 
+  font-size: clamp(3rem, 10vw, 4.5rem);
+  font-weight: 800;
+
   text-align: center;
 
-  font-size: clamp(2rem, 10vw, 4rem);
-
-  font-weight: 700;
+  margin-bottom: 50px;
 }
 
-.darts-big-btn {
+/* ===== TROFÉU ===== */
+
+.darts-victory-icon {
+  font-size: 11rem;
+
+  margin-bottom: 60px;
+
+  animation: trophyFloat 3s ease-in-out infinite;
+}
+
+@keyframes trophyFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* ===== BOTÃO ===== */
+
+.darts-victory-btn {
   width: 100%;
-  max-width: 300px;
+  max-width: 340px;
 
   height: 70px;
 
@@ -35,9 +83,31 @@
 
   border: 2px solid #9e8700;
 
-  background: rgba(255,255,255,.05);
+  background: rgba(255,255,255,.04);
+
+  backdrop-filter: blur(8px);
 
   color: white;
 
   font-size: 1.4rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+.darts-victory-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 0 18px rgba(255,208,0,.15);
+}
+
+.medalha{
+  font-size: 11rem;
+
+  margin-bottom: 60px;
+
+  animation: medalhaFloat 3s ease-in-out infinite;
 }

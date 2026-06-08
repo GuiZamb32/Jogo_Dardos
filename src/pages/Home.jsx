@@ -10,7 +10,9 @@ export default function Home() {
 
   return (
     <div className="darts-center">
-      <div className="darts-menu-icon">🎯</div>
+      <div className="darts-menu-icon">
+        <img className="alvo" src="dardo.png" alt="" />
+      </div>
 
       <div className="darts-title">
         PLACAR DE DARDOS CASUAL
@@ -24,7 +26,7 @@ export default function Home() {
       </button>
 
       <button
-        className="darts-big-btn darts-btn-blue"
+        className="darts-big-btn darts-btn-red"
         onClick={() => startGame(501)}
       >
         Jogar 501

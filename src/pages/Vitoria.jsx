@@ -17,19 +17,30 @@ export default function Vitoria() {
 
   return (
     <div className="darts-overlay">
-      <div className="darts-victory-icon">🏆</div>
+
+      <div className="darts-victory-player">
+        <span>Jogador:</span>
+
+        <span className="darts-player-name">
+          {winner?.name}
+        </span>
+      </div>
 
       <div className="darts-victory-title">
-        {winner?.name || "Jogador"} VENCEU!
+        Venceu !!
+      </div>
+
+      <div className="darts-victory-icon">
+        <img className="Medalha" src="fita.png" alt="" />
       </div>
 
       <button
-        className="darts-big-btn darts-btn-yellow"
-        style={{ width: "280px" }}
+        className="darts-victory-btn"
         onClick={voltarMenu}
       >
         Voltar ao Menu
       </button>
+
     </div>
   );
 }

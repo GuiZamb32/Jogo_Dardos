@@ -22,6 +22,7 @@ export default function Pontos() {
     gameData.mode,
   ]);
 
+
   const [turn, setTurn] = useState(0);
   const [darts, setDarts] = useState([]);
   const [mult, setMult] = useState(1);
@@ -98,6 +99,12 @@ export default function Pontos() {
   }
 
   return (
+  <div
+    className="darts-page"
+    style={{
+      backgroundColor: players[turn].color,
+    }}
+  >
     <div className="darts-game-container">
 
       <div className="darts-scoreboard">
@@ -160,10 +167,10 @@ export default function Pontos() {
             onClick={() => setMult(m)}
           >
             {m === 1
-              ? "x1 Simples"
+              ? "Simples"
               : m === 2
-              ? "x2 Duplo"
-              : "x3 Triplo"}
+              ? "X2 Duplo"
+              : "X3 Triplo"}
           </button>
         ))}
       </div>
@@ -193,7 +200,7 @@ export default function Pontos() {
           className="darts-special-btn"
           onClick={() => addDart(50)}
         >
-          🎯 Mosca (50)
+          Mosca (50)
         </button>
 
         <button
@@ -209,7 +216,7 @@ export default function Pontos() {
           className="darts-next-btn"
           onClick={nextPlayer}
         >
-          Próximo Jogador ➡️
+          Próximo Jogador
         </button>
       )}
 
@@ -223,5 +230,5 @@ export default function Pontos() {
       </div>
 
     </div>
-  );
-}
+  </div>
+);}

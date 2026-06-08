@@ -3,46 +3,117 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 
-  gap: 25px;
+  padding: 30px;
 
-  padding: 20px;
+  background:
+    radial-gradient(circle at top,
+      rgba(255,255,255,.03),
+      transparent 40%),
+    #090909;
 }
 
 .darts-menu-icon {
-  font-size: 5rem;
-  text-align: center;
+  font-size: 9rem;
+  margin-bottom: 30px;
 }
 
 .darts-title {
-  color: white;
+  color: #fff;
+
+  font-size: clamp(2.2rem, 7vw, 3rem);
+  font-weight: 700;
+
   text-align: center;
 
-  font-size: clamp(2rem, 8vw, 3rem);
-  font-weight: 700;
+  margin-bottom: 80px;
 }
 
 .darts-big-btn {
   width: 100%;
-  height: 70px;
+  max-width: 340px;
+  height: 72px;
 
-  border-radius: 18px;
+  margin-bottom: 28px;
+
+  border-radius: 20px;
 
   background: rgba(255,255,255,.04);
 
   color: white;
 
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 700;
 
   cursor: pointer;
+
+  transition: all .25s ease;
+
+  backdrop-filter: blur(8px);
+}
+
+.darts-big-btn:hover {
+  transform: translateY(-3px);
 }
 
 .darts-btn-yellow {
-  border: 2px solid #9e8700;
+  border: 2px solid #8f7a00;
+  box-shadow: inset 0 0 20px rgba(255, 208, 0, .05);
 }
 
-.darts-btn-blue {
-  border: 2px solid #1565c0;
+.darts-btn-red {
+  border: 2px solid #8b0000;
+  box-shadow: inset 0 0 20px rgba(255, 0, 0, .05);
+}
+
+.darts-btn-yellow:hover {
+  box-shadow:
+    0 0 15px rgba(255,208,0,.2),
+    inset 0 0 20px rgba(255,208,0,.08);
+}
+
+.darts-btn-red:hover {
+  box-shadow:
+    0 0 15px rgba(255,0,0,.2),
+    inset 0 0 20px rgba(255,0,0,.08);
+}
+
+.alvo {
+  font-size: 11rem;
+  height: 11rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 60px;
+
+  animation:
+    medalhaFloat 4s ease-in-out infinite,
+    alvoPulse 2.5s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 0 15px rgba(255,136,0,.25));
+}
+
+@keyframes medalhaFloat {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes alvoPulse {
+  0%,100% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.05;
+  }
 }

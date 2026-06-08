@@ -10,8 +10,8 @@ export default function Players() {
   const [p1name, setP1name] = useState("Jogador 1");
   const [p2name, setP2name] = useState("Jogador 2");
 
-  const [p1color, setP1color] = useState("#8A1111");
-  const [p2color, setP2color] = useState("#8A4111");
+  const [p1color, setP1color] = useState("#701616");
+  const [p2color, setP2color] = useState("#1b217a");
 
   function startGame() {
     const gameData = {
@@ -39,7 +39,7 @@ export default function Players() {
   return (
     <div className="darts-center">
       <div className="darts-title">
-        ⚙️ CONFIGURAR — {mode}
+         Nomes
       </div>
 
       {[
