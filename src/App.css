@@ -1,346 +1,44 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
-.app {
-  min-height: 100vh;
-  transition: background-color 0.4s ease;
-  font-family: 'Barlow Condensed', sans-serif;
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  user-select: none;
-  width: 100%;
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  gap: 16px;
-  padding: 24px 16px;
-  width: 100%;
-  max-width: 440px;
-}
-
-.title {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-/* --- BOTÕES GERAIS --- */
-.bigBtn {
-  width: 100%;
-  padding: 18px 0;
-  font-size: 22px;
-  font-weight: 700;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 1px;
-  transition: transform 0.1s ease, opacity 0.2s;
-}
-
-.bigBtn:active {
-  transform: scale(0.98);
-}
-
-.btnYellow {
-  background-color: #ffc107;
-  color: #111111;
-}
-
-.btnBlue {
-  background-color: #1d3557;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-}
-
-.linkBtn {
-  background: none;
-  border: none;
-  color: #aaaaaa;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-
-.linkBtn:hover {
-  color: #ffffff;
-}
-
-/* --- TELA CONFIGURAÇÃO --- */
-.configCard {
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  box-sizing: border-box;
-}
-
-.label {
-  font-size: 12px;
-  color: #aaaaaa;
-  margin-bottom: 4px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.inputRow {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  width: 100%;
-}
-
-.inp {
-  flex: 1;
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid #333333;
-  background-color: #1e1e1e;
-  color: #ffffff;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.colorPick {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 2px solid #ffffff;
-  cursor: pointer;
+* {
+  margin: 0;
   padding: 0;
-}
-
-/* --- TELA DE JOGO --- */
-.gameContainer {
-  width: 100%;
-  max-width: 440px;
-  padding: 12px 12px 0;
   box-sizing: border-box;
+  font-family: "Barlow Condensed", sans-serif;
 }
 
-.scoreboard {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
+body {
+  background: #090909;
+  overflow-x: hidden;
 }
 
-.scoreCard {
-  flex: 1;
-  border-radius: 12px;
-  padding: 10px 8px;
-  text-align: center;
-  transition: all 0.2s ease;
+#root {
+  min-height: 100vh;
 }
 
-.scoreCardActive {
-  background-color: rgba(255, 255, 255, 0.18);
-  border: 2px solid #ffffff;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+.darts-app {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top,
+      rgba(255,255,255,.05),
+      transparent 40%),
+    #090909;
 }
 
-.scoreCardInactive {
-  background-color: rgba(0, 0, 0, 0.25);
-  border: 2px solid transparent;
-  opacity: 0.6;
-}
+@media (max-width: 360px) {
+  .darts-num-btn {
+    height: 45px;
+    font-size: 1.1rem;
+  }
 
-.scoreName {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  opacity: 0.9;
-  margin-bottom: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  .darts-mult-btn {
+    font-size: .9rem;
+  }
 
-.scoreNum {
-  font-size: 52px;
-  font-weight: 800;
-  line-height: 1;
-}
+  .darts-special-btn {
+    font-size: .8rem;
+  }
 
-/* Status Interno do Turno */
-.turnInfo {
-  text-align: center;
-  margin-bottom: 6px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 8px;
-  border-radius: 10px;
-}
-
-.turnText {
-  font-size: 13px;
-  color: #dddddd;
-}
-
-.turnScore {
-  font-size: 22px;
-  font-weight: 800;
-  color: #ffc107;
-}
-
-.textBust {
-  color: #dc3545 !important;
-}
-
-.dotsRow {
-  display: flex;
-  gap: 6px;
-  justify-content: center;
-  margin-top: 4px;
-}
-
-.dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #333333;
-  transition: background-color 0.2s, box-shadow 0.2s;
-}
-
-.dotActive {
-  background-color: #ffc107;
-  box-shadow: 0 0 6px #ffc107;
-}
-
-/* Painel de Modificadores e Teclado */
-.multRow {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 8px;
-}
-
-.multBtn {
-  flex: 1;
-  padding: 10px 0;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.1s;
-  border: 1px solid #555555;
-  background-color: #1e1e1e;
-  color: #ffffff;
-}
-
-.multBtnActive {
-  border: 2px solid #ffc107;
-  background-color: #ffc107;
-  color: #111111;
-}
-
-.gridNumbers {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
-  margin-bottom: 5px;
-}
-
-.numBtn {
-  padding: 12px 0;
-  border-radius: 8px;
-  border: 1px solid #333333;
-  background-color: #1e1e1e;
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 17px;
-  cursor: pointer;
-}
-
-.numBtn:active:not(:disabled) {
-  background-color: #444444;
-}
-
-.numBtn:disabled, .specialBtn:disabled {
-  opacity: 0.15;
-  cursor: not-allowed;
-}
-
-.specialRow {
-  display: flex;
-  gap: 5px;
-  margin-bottom: 8px;
-}
-
-.specialBtn {
-  flex: 1;
-  padding: 12px 0;
-  border-radius: 8px;
-  border: 1px solid #ffc107;
-  background-color: #1e1e1e;
-  color: #ffc107;
-  font-weight: 700;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.missBtn {
-  border-color: #888888;
-  color: #aaaaaa;
-}
-
-.nextBtn {
-  width: 100%;
-  padding: 16px 0;
-  font-size: 20px;
-  font-weight: 700;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  background-color: #ffc107;
-  color: #111111;
-  letter-spacing: 1px;
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.5); }
-  70% { box-shadow: 0 0 0 10px rgba(255, 193, 7, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
-}
-
-.footer {
-  text-align: center;
-  margin-top: 8px;
-  padding-bottom: 12px;
-}
-
-/* --- OVERLAY DE VITÓRIA --- */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.92);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  gap: 20px;
-  padding: 24px;
-}
-
-.menuIcon, .victoryIcon {
-  font-size: 56px;
-}
-
-.victoryIcon {
-  font-size: 64px;
-}
-
-.victoryTitle {
-  font-size: 32px;
-  font-weight: 800;
-  text-align: center;
+  .darts-turn-score {
+    font-size: 2.8rem;
+  }
 }

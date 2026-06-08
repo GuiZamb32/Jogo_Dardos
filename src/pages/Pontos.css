@@ -1,0 +1,122 @@
+.darts-game-container {
+  min-height: 100vh;
+
+  padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.darts-scoreboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.darts-score-card {
+  padding: 10px;
+
+  border-radius: 16px;
+
+  background: rgba(255,255,255,.08);
+
+  text-align: center;
+}
+
+.darts-score-name {
+  color: white;
+  font-size: .9rem;
+}
+
+.darts-score-num {
+  color: white;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  font-weight: 700;
+}
+
+.darts-turn-info {
+  padding: 15px;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.08);
+
+  text-align: center;
+}
+
+.darts-turn-score {
+  font-size: clamp(3rem, 12vw, 5rem);
+  font-weight: 800;
+  color: #22a962;
+}
+
+.darts-mult-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.darts-mult-btn {
+  height: 50px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+}
+
+.darts-grid-numbers {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.darts-num-btn {
+  height: 55px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 1.4rem;
+}
+
+.darts-special-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.darts-special-btn {
+  height: 50px;
+
+  border-radius: 10px;
+
+  color: white;
+
+  background: rgba(255,255,255,.08);
+
+  font-size: .9rem;
+}
+
+.darts-miss-btn {
+  grid-column: span 2;
+}
+
+.darts-next-btn {
+  height: 60px;
+
+  border-radius: 14px;
+
+  background: #19a857;
+
+  color: white;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+}

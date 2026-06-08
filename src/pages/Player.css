@@ -1,0 +1,68 @@
+.darts-center {
+  min-height: 100vh;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 20px;
+}
+
+.darts-title {
+  color: white;
+  text-align: center;
+
+  font-size: clamp(2rem, 8vw, 3rem);
+}
+
+.darts-config-card {
+  padding: 20px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.04);
+
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+.darts-label {
+  text-align: center;
+  color: #aaa;
+
+  margin-bottom: 10px;
+
+  font-size: 1.4rem;
+}
+
+.darts-input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.darts-inp {
+  flex: 1;
+
+  height: 50px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,.15);
+
+  background: rgba(0,0,0,.3);
+
+  color: white;
+
+  padding: 0 12px;
+
+  font-size: 1rem;
+}
+
+.darts-color-pick {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 12px;
+  border: none;
+}
