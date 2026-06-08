@@ -1,14 +1,21 @@
 #  Placar de Dardos Casual
 
-Uma aplicação web desenvolvida em React para gerenciamento de partidas de dardos nos modos **301** e **501**, com suporte para dois jogadores, personalização de nomes e cores, controle automático de pontuação e persistência de dados utilizando Local Storage.
+Uma aplicação web desenvolvida em **React** para gerenciamento de partidas de dardos nos modos **301** e **501**, com interface moderna, responsiva e otimizada para dispositivos móveis.
+
+O sistema permite configurar jogadores, personalizar cores, controlar pontuações automaticamente e exibir o vencedor ao final da partida.
 
 ---
 
-##  Sobre o Projeto
+##  Demonstração
 
-O **Placar de Dardos Casual** foi criado para facilitar o acompanhamento de partidas de dardos de forma prática, intuitiva e responsiva.
+O aplicativo possui quatro telas principais:
 
-A aplicação elimina a necessidade de anotações manuais, calculando automaticamente a pontuação dos jogadores e gerenciando os turnos durante toda a partida.
+*  Home
+*  Configuração dos Jogadores
+*  Partida
+*  Vitória
+
+A interface foi projetada com foco em experiência mobile, utilizando um layout inspirado em aplicativos modernos.
 
 ---
 
@@ -19,55 +26,65 @@ A aplicação elimina a necessidade de anotações manuais, calculando automatic
 * 301
 * 501
 
-###  Gerenciamento de Jogadores
+###  Configuração dos Jogadores
 
 * Cadastro de 2 jogadores
-* Personalização do nome
+* Personalização dos nomes
 * Escolha de cor individual
+* Cor aplicada dinamicamente durante a partida
 
 ###  Sistema de Pontuação
 
-* Pontuação automática
+* Contagem automática
 * Multiplicadores:
 
   * Simples (x1)
   * Duplo (x2)
   * Triplo (x3)
 * Centro Verde (25 pontos)
-* Mosca/Bullseye (50 pontos)
+* Mosca / Bullseye (50 pontos)
 * Errou (0 pontos)
 
 ###  Controle de Turnos
 
-* Até 3 dardos por rodada
-* Alternância automática entre jogadores
+* Até 3 arremessos por rodada
+* Alternância automática de jogadores
 * Indicador visual do jogador da vez
+* Contador visual de dardos lançados
 
 ###  Sistema de Bust (Estouro)
 
-Quando a pontuação de um jogador ficaria abaixo de zero:
+Quando a pontuação ficaria abaixo de zero:
 
-* A rodada é cancelada
-* Nenhum ponto é descontado
+* A rodada é anulada
+* A pontuação permanece inalterada
 * O turno passa para o próximo jogador
 
 ###  Sistema de Vitória
 
-* Detecta automaticamente quando um jogador chega a 0 pontos
-* Exibe tela de vencedor
-* Permite reiniciar a partida
+* Detecção automática do vencedor
+* Tela exclusiva de comemoração
+* Opção para reiniciar a partida
 
-###  Persistência de Dados
+###  Tema Dinâmico
 
-Utiliza o Local Storage do navegador para salvar:
+Durante a partida:
+
+* O fundo da tela muda automaticamente para a cor escolhida pelo jogador atual
+* Transição suave entre turnos
+
+###  Persistência Local
+
+Os dados são armazenados utilizando:
+
+* Local Storage
+
+Informações salvas:
 
 * Jogadores
-* Pontuações
-* Turno atual
-* Dardos lançados
-* Multiplicador selecionado
-
-Assim, a partida pode ser retomada mesmo após atualizar a página.
+* Cores
+* Modo de jogo
+* Vencedor
 
 ---
 
@@ -75,10 +92,12 @@ Assim, a partida pode ser retomada mesmo após atualizar a página.
 
 ### Front-end
 
-* React
+* React 19
+* React Router DOM 7
 * JavaScript (ES6+)
 * HTML5
 * CSS3
+* Vite
 
 ### Armazenamento
 
@@ -91,9 +110,21 @@ Assim, a partida pode ser retomada mesmo após atualizar a página.
 ```text
 src/
 │
-├── ArenaDardos.jsx
-├── Telas.css
+├── pages/
+│   ├── Home.jsx
+│   ├── Home.css
+│   │
+│   ├── Player.jsx
+│   ├── Player.css
+│   │
+│   ├── Pontos.jsx
+│   ├── Pontos.css
+│   │
+│   ├── Vitoria.jsx
+│   └── Vitoria.css
+│
 ├── App.jsx
+├── App.css
 ├── main.jsx
 │
 └── assets/
@@ -103,31 +134,31 @@ src/
 
 ##  Como Executar
 
-### Clone o repositório
+### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/placar-dardos.git
+git clone https://github.com/seu-usuario/jogo-dardos.git
 ```
 
-### Acesse a pasta do projeto
+### 2. Entre na pasta
 
 ```bash
-cd placar-dardos
+cd jogo-dardos
 ```
 
-### Instale as dependências
+### 3. Instale as dependências
 
 ```bash
 npm install
 ```
 
-### Execute o projeto
+### 4. Execute o projeto
 
 ```bash
 npm run dev
 ```
 
-### Abra no navegador
+### 5. Abra no navegador
 
 ```text
 http://localhost:5173
@@ -137,7 +168,7 @@ http://localhost:5173
 
 ##  Responsividade
 
-O projeto foi desenvolvido para funcionar em:
+O projeto foi desenvolvido com abordagem Mobile First e funciona em:
 
 * Smartphones Android
 * iPhone
@@ -153,14 +184,21 @@ O projeto foi desenvolvido para funcionar em:
 
 Cada jogador inicia com:
 
-* 301 pontos (modo 301)
-* 501 pontos (modo 501)
+* 301 pontos
+  ou
+* 501 pontos
 
-### Rodada
+### Rodadas
 
 Cada jogador possui:
 
 * Até 3 arremessos por turno
+
+### Multiplicadores
+
+* Simples = x1
+* Duplo = x2
+* Triplo = x3
 
 ### Vitória
 
@@ -175,10 +213,10 @@ O jogador vence quando sua pontuação chega exatamente a:
 Quando:
 
 ```text
-Pontuação Atual - Pontos da Rodada < 0
+Pontuação Atual - Pontuação da Rodada < 0
 ```
 
-A rodada é anulada e a pontuação permanece inalterada.
+A rodada é cancelada automaticamente.
 
 ---
 
@@ -186,13 +224,14 @@ A rodada é anulada e a pontuação permanece inalterada.
 
 * Histórico de partidas
 * Ranking de jogadores
-* Estatísticas detalhadas
-* Média de pontuação por rodada
-* Sugestão de checkout
-* Modo para mais de 2 jogadores
-* Tema claro/escuro
-* Sons e animações avançadas
+* Estatísticas avançadas
+* Média por rodada
+* Histórico de lançamentos
+* Mais modos de jogo (701, Cricket etc.)
+* Mais de 2 jogadores
+* Sons e efeitos especiais
 * Progressive Web App (PWA)
+* Integração com banco de dados
 
 ---
 
@@ -200,12 +239,12 @@ A rodada é anulada e a pontuação permanece inalterada.
 
 **Guilherme Zamboni Menegacio**
 
-Projeto desenvolvido para prática de React, gerenciamento de estado e criação de interfaces responsivas para dispositivos móveis.
+Projeto desenvolvido para estudo de React, React Router, gerenciamento de estado e criação de interfaces responsivas voltadas para dispositivos móveis.
 
 ---
 
 ##  Licença
 
-Este projeto está licenciado sob a licença MIT.
+Este projeto está sob a licença MIT.
 
-Sinta-se à vontade para utilizar, estudar e modificar este projeto para fins acadêmicos ou pessoais.
+Sinta-se à vontade para utilizar, estudar, modificar e contribuir com melhorias.
